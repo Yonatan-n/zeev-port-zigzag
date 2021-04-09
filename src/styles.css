@@ -1,0 +1,351 @@
+:root {
+  --blue: #1e90ff;
+  --white: #ffffff;
+  --bg-color: black;
+  --bg-clear: rgba(0, 0, 0, 0.5);
+  --text-color: white;
+  --color-1: grey;
+  --color-2: blue;
+  --color-3: green;
+  --color-4: brown;
+
+  --mobile-width: 600px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  min-height: 100vh;
+}
+
+/* Style the navbar */
+#navbar {
+  top: 0;
+  z-index: 10;
+  position: sticky;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: rgba(0, 0, 0, 0.4);
+  margin: 0;
+  padding: 0;
+  /* overflow: hidden; */
+  /* background-color: #333; */
+}
+
+.navButtons {
+  color: white;
+  padding: 14px;
+  text-decoration: none;
+}
+.navButtons:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+  color: black;
+}
+
+/* Page content */
+.content {
+  padding: 16px;
+}
+
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: 60px;
+}
+/* Style the navbar */
+
+#home {
+  position: relative;
+}
+
+.header-container h1 {
+  font-size: calc(100vw / 21);
+}
+/* header img zoom animation */
+.header-container {
+  height: 50vw; /* [1.1] Set it as per your need */
+  overflow: hidden; /* [1.2] Hide the overflowing of child elements */
+}
+
+/* [2] Transition property for smooth transformation of images */
+.header-container img {
+  /* transition: transform 0.5s ease; */
+  transform-origin: 68% 30%;
+  transition: transform 1s, filter 0.5s ease-out;
+
+  /* my styling */
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  /* my stlying */
+}
+
+/* [3] Finally, transforming the image when container gets hovered */
+.header-container:hover img {
+  /* transform: scale(1.5); */
+  transform: scale(2);
+}
+/* header img zoom animation */
+
+#blackBackGround {
+  position: absolute;
+  background-color: var(--bg-clear);
+  left: 0;
+  top: 0;
+  width: 50%; /* Full width in phone */
+  margin-left: 50%; /* 0% in phone */
+  height: 100%;
+  display: flex;
+}
+
+@media screen and (max-width: 600px) {
+  #blackBackGround {
+    width: 100%; /* Full width */
+    margin-left: 0%; /* 0% in phone */
+  }
+
+  .header-container h1 {
+    font-size: calc(100vw / 15); /* prevent text overflowing */
+    /* padding: 0 auto 0 0; */
+  }
+  #rightCentered {
+    padding-left: auto;
+  }
+}
+
+#rightCentered {
+  color: white;
+  opacity: 1;
+  margin: auto 1em auto 1em;
+}
+#rightCentered > * {
+  margin: 0;
+}
+
+.services-container {
+  max-width: 64em;
+}
+
+.carousel-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  margin: 0 auto;
+}
+
+.carosel-image-container {
+  max-height: 50vh;
+}
+
+.carosuel-item {
+  object-fit: contain;
+  width: 100%;
+  height: 80vh;
+  display: block;
+  /* border: 2px solid black; */
+}
+
+.carosuel-item > img {
+  border: 2px solid black;
+}
+
+.carosel-image-fade-out {
+  transition: 0.3s;
+  opacity: 0;
+}
+.carosel-image-fade-in {
+  transition: 0.3s;
+  opacity: 1;
+}
+
+.arrow-cnt {
+  /* background: green; */
+  /* margin: auto 1em auto 0; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.arrow-btn {
+  color: white;
+  font-size: 3em;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.arrow-btn:hover {
+  color: black;
+  transition: 0.5s;
+}
+
+#contact {
+  margin: 0 auto;
+  max-width: 50vw;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 1em;
+}
+.profile-image-container {
+  border-radius: 25%;
+}
+
+.iframe-container {
+  overflow: hidden;
+  /* 16:9 aspect ratio */
+  position: relative;
+  /* padding-top: max(calc(100vw / 100vh * 100%), calc(100vh / 100vw * 100%)); */
+  padding-top: 56.25%;
+  max-width: 80vw;
+  min-width: 50vw;
+}
+
+.iframe-container iframe {
+  border: 0;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+/* new main layout  */
+
+.all-services {
+  margin: 0 auto;
+}
+.services-container {
+  /* width: 100vw; */
+  border-radius: 0em;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  margin: 0 auto;
+  /* padding: 0 1em; */
+}
+.services-container-background {
+  height: min(50vh, 50vh);
+
+  /* max-height: 50vw; */
+  /* important! vw! to make it  the
+  same aspect as the header */
+  padding: 1em;
+}
+
+.services-container-background:nth-child(even) .services-container {
+  flex-direction: row-reverse;
+}
+
+.services-container-background:nth-child(1) {
+  background: var(--color-1);
+  /* color: rgba(var(--color-1), 0.5); */
+}
+.services-container-background:nth-child(2) {
+  background: var(--color-2);
+  /* color: var(--color-2); */
+}
+.services-container-background:nth-child(3) {
+  background: var(--color-3);
+  /* color: var(--color-3); */
+}
+.services-container-background:nth-child(4) {
+  background: var(--color-4);
+  /* color: var(--color-4); */
+}
+.services-image {
+  /* display: block; */
+  /* object-fit: contain;
+  max-height: 100%;
+  min-width: 100%; */
+  /* object-fit: cover; */
+  /* vertical-align: bottom; */
+}
+.service-image-container {
+  /* width: 100%; */
+  height: min(50vh, 50vh);
+}
+.service-text-container {
+  flex-grow: 9999;
+  flex-basis: 32em;
+  min-width: 40%;
+  margin: auto 3em;
+  /* padding-left: 1em;
+  padding-right: 1em; */
+}
+.service-text-container h3 {
+  padding-bottom: 1em;
+}
+
+.service-image-container img {
+  height: 100%;
+  width: 100%;
+  /* max-width: 100%; */
+  display: block;
+  object-fit: cover;
+}
+.service-image-container img:hover {
+}
+
+.inline-carousle-out {
+  transition: 0.5s;
+  opacity: 0;
+  transform: translatex(-32em);
+  /* transform: scale(0); */
+}
+.services-container-background:nth-child(even) .inline-carousle-out {
+  transform: translatex(32em);
+}
+.services-container-background:nth-child(even) .inline-carousle-in {
+  /* this fix animation glitch on the even childs
+  not sure why... */
+  transform: translatex(0em);
+}
+.inline-carousle-in {
+  /* animation: inline-carousle-in-animation 1s ease-in;
+  animation-fill-mode: forwards; */
+  transition: 0.5s;
+  opacity: 1;
+  transform: translatex(0);
+
+  /* transform: scale(1); */
+}
+/* @keyframes inline-carousle-in {
+  from {
+    opacity: 0;
+    transform: translatex(-32em);
+  }
+  to {
+    opacity: 1;
+    transform: translatex(0);
+  }
+} */
+
+@media screen and (max-width: 600px) {
+  .services-container-background:nth-child(even) .services-container {
+    flex-direction: column;
+  }
+
+  .services-container-background {
+    height: auto;
+  }
+  .services-container {
+    flex-direction: column;
+  }
+  .service-text-container {
+    flex-basis: 0;
+    margin: 3em;
+  }
+  .service-image-container {
+    height: none;
+    margin: 0 auto;
+    padding: 1em;
+  }
+}
+/* new main layout */
